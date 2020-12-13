@@ -57,13 +57,15 @@ export async function getMyInfo() {
   try {
     const personResponse = await spotifyApi.getMe()
     const {
+      id,
       country,
       display_name,
       external_urls: { spotify },
       images: [{ url }]
     } = personResponse
     const personInfo = {
-      country: country,
+      id,
+      country,
       name: display_name,
       link: spotify,
       avatar: url
@@ -76,13 +78,55 @@ export async function getMyInfo() {
   }
 }
 
-export async function getMyTracks() {
+export async function getMyTracks(term) {
   try {
-    const personResponse = await spotifyApi.getMyTopTracks({ limit: 50 })
-    console.log(personResponse)
+    const personResponse = await spotifyApi.getMyTopTracks({
+      limit: 50,
+      time_range: term
+    })
+    const tracks = personResponse.items.map((item) => {
+      const {
+        album: { artists, images },
+        name,
+        uri
+      } = item
+      return { name: name, artists: artists, images: images[0].url, uri }
+    })
+    return tracks
   } catch (err) {
     console.error('Error: Attempting to get user information', err)
     console.error(err.stack)
     return [{ id: null, playlistName: "Can't get your info!" }]
+  }
+}
+
+export async function createPlaylist(uid) {
+  try {
+    const personResponse = await spotifyApi.createPlaylist(uid, {
+      name: 'Hi there',
+      description: 'New playlist description',
+      public: false
+    })
+
+    const { id } = personResponse
+    return id
+  } catch (err) {
+    console.error('Error: Attempting to get user information', err)
+    console.error(err.stack)
+    return [{ id: null, playlistName: "'t get your info!" }]
+  }
+}
+
+export async function addSongsToPlaylist(playlistId, uris) {
+  try {
+    const personResponse = await spotifyApi.addTracksToPlaylist(
+      playlistId,
+      uris
+    )
+    console.log(personResponse)
+  } catch (err) {
+    console.error('Error: Attempting to get user information', err)
+    console.error(err.stack)
+    return [{ id: null, playlistName: "Canasdad't get your info!" }]
   }
 }
