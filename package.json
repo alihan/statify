@@ -11,6 +11,7 @@
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^10.0.4",
@@ -29,6 +30,7 @@
     "prettier": "^2.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-hot-loader": "^4.3.11"
+    "react-hot-loader": "^4.3.11",
+    "spotify-web-api-js": "^1.5.1"
   }
 }
