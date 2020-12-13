@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "dotenv-webpack": "^6.0.0",
     "prettier": "^2.2.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
