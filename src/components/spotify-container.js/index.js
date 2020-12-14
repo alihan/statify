@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import styles from './styles.module.scss'
 import ConnectSpotify from '../connect-spotify'
 import * as SpotifyFunctions from '../../api/spotify'
 import Stats from '../stats'
+import Statify from '../icons/statify'
 
 const SpotifyContainer = () => {
   const [loggedinSpotify, setLoggedinSpotify] = useState(false)
@@ -16,11 +18,8 @@ const SpotifyContainer = () => {
     }
   }, [])
 
-  console.log(loggedinSpotify)
-
   return (
-    <div>
-      <p>Spotify Controls</p>
+    <div className={styles.container}>
       {!loggedinSpotify ? <ConnectSpotify /> : <Stats />}
     </div>
   )

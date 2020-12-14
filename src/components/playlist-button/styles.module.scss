@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin: 0 10px 50px 10px;
+  padding: 15px 50px;
+  font-size: 22px;
+  border-radius: 12px;
+  background-color: $citric;
+  color: $fuchsia;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;
+}

@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.header {
+  width: 100%;
+  background-color: $black;
+  color: $white;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  font-size: 30px;
+  margin: 10px;
+  & > svg {
+    fill: $white;
+    margin-right: 15px;
+  }
+}
+
+.avatar {
+  margin: 10px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}

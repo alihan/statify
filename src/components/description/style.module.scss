@@ -1,0 +1,51 @@
+@import '../../styles/variables.scss';
+
+.section {
+  width: 100%;
+  padding: 3rem 0;
+  background-color: $sunflower;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  padding: 6rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  border: 4px solid $white;
+  margin-right: 25px;
+}
+
+.description {
+  font-size: 26px;
+  color: $brown;
+  letter-spacing: -1px;
+}
+
+.buttonContainer {
+}
+
+.button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 2px solid $brown;
+  color: $brown;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $brown;
+    color: $sunflower;
+    transition: 100ms;
+  }
+}
