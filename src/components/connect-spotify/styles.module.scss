@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.container {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  & > svg {
+    fill: $black;
+    font-size: 15rem;
+  }
+}
+
+.title {
+  margin-top: 30px;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+}
+.button {
+  margin-top: 30px;
+  background-color: $black;
+  color: $white;
+  font-weight: 600;
+  font-size: 21px;
+  padding: 20px 40px;
+  cursor: pointer;
+  border-radius: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > svg {
+    margin-left: 10px;
+    fill: $white;
+    font-size: 24px;
+  }
+}
