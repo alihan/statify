@@ -55,14 +55,14 @@ export function setAccessToken(accessToken) {
 
 export async function getMyInfo() {
   try {
-    const personResponse = await spotifyApi.getMe()
+    const playlistResponse = await spotifyApi.getMe()
     const {
       id,
       country,
       display_name,
       external_urls: { spotify },
       images: [{ url }]
-    } = personResponse
+    } = playlistResponse
     const personInfo = {
       id,
       country,
@@ -74,17 +74,17 @@ export async function getMyInfo() {
   } catch (err) {
     console.error('Error: Attempting to get user information', err)
     console.error(err.stack)
-    return [{ id: null, playlistName: "Can't get your info!" }]
+    return [{ id: null }]
   }
 }
 
 export async function getMyTracks(term) {
   try {
-    const personResponse = await spotifyApi.getMyTopTracks({
+    const tracksResponse = await spotifyApi.getMyTopTracks({
       limit: 50,
       time_range: term
     })
-    const tracks = personResponse.items.map((item) => {
+    const tracks = tracksResponse.items.map((item) => {
       const {
         album: { artists, images },
         name,
@@ -96,37 +96,38 @@ export async function getMyTracks(term) {
   } catch (err) {
     console.error('Error: Attempting to get user information', err)
     console.error(err.stack)
-    return [{ id: null, playlistName: "Can't get your info!" }]
+    return [{ id: null, album: "Can't get your tracks info!" }]
   }
 }
 
-export async function createPlaylist(uid) {
+export async function createPlaylist(uid, name, tracks) {
   try {
-    const personResponse = await spotifyApi.createPlaylist(uid, {
-      name: 'Hi there',
-      description: 'New playlist description',
+    const playlistResponse = await spotifyApi.createPlaylist(uid, {
+      name: name,
       public: false
     })
 
-    const { id } = personResponse
-    return id
+    const { id } = playlistResponse
+
+    const tracksResponse = await spotifyApi.addTracksToPlaylist(id, tracks)
+    return tracksResponse
   } catch (err) {
-    console.error('Error: Attempting to get user information', err)
+    console.error('Error: Attempting to create playlist', err)
     console.error(err.stack)
-    return [{ id: null, playlistName: "'t get your info!" }]
+    return [{ id: null }]
   }
 }
 
 export async function addSongsToPlaylist(playlistId, uris) {
   try {
-    const personResponse = await spotifyApi.addTracksToPlaylist(
+    const playlistResponse = await spotifyApi.addTracksToPlaylist(
       playlistId,
       uris
     )
-    console.log(personResponse)
+    return playlistResponse
   } catch (err) {
-    console.error('Error: Attempting to get user information', err)
+    console.error('Error: Attempting to add tracks to playlist', err)
     console.error(err.stack)
-    return [{ id: null, playlistName: "Canasdad't get your info!" }]
+    return [{ snapshot_id: null }]
   }
 }
