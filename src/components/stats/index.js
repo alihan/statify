@@ -7,7 +7,7 @@ import Description from '../description'
 
 import styles from './style.module.scss'
 
-const Stats = ({ logIn }) => {
+const Stats = () => {
   const [profile, setProfile] = useState({})
   const [tracks, setTracks] = useState()
   const [term, setTerm] = useState('medium_term')
@@ -41,7 +41,7 @@ const Stats = ({ logIn }) => {
 
   return (
     <div className={styles.container}>
-      <Header picture={profile.avatar} logout={logIn} />
+      <Header picture={profile.avatar} />
       <Description
         picture={profile.avatar}
         name={profile.name}
