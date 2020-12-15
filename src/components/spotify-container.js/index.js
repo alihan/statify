@@ -4,6 +4,7 @@ import ConnectSpotify from '../connect-spotify'
 import * as SpotifyFunctions from '../../api/spotify'
 import Stats from '../stats'
 import Statify from '../icons/statify'
+import Spotify from '../icons/spotify'
 
 const SpotifyContainer = () => {
   const [loggedinSpotify, setLoggedinSpotify] = useState(false)
@@ -11,16 +12,20 @@ const SpotifyContainer = () => {
 
   useEffect(() => {
     const accessToken = SpotifyFunctions.checkUrlForSpotifyAccessToken()
-    if (accessToken) {
+    let token = localStorage.getItem('token')
+    if (token) {
+      SpotifyFunctions.setAccessToken(token)
+      setLoggedinSpotify(true)
+    } else if (accessToken) {
       setAccessToken(accessToken)
       setLoggedinSpotify(true)
       localStorage.setItem('token', accessToken)
     }
-  }, [])
+  }, [accessToken])
 
   return (
     <div className={styles.container}>
-      {!loggedinSpotify ? <ConnectSpotify /> : <Stats />}
+      {!loggedinSpotify ? <ConnectSpotify /> : <Stats logIn={setLoggedinSpotify} />}
     </div>
   )
 }

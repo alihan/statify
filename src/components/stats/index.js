@@ -7,7 +7,7 @@ import Description from '../description'
 
 import styles from './style.module.scss'
 
-const Stats = () => {
+const Stats = ({ logIn }) => {
   const [profile, setProfile] = useState({})
   const [tracks, setTracks] = useState()
   const [term, setTerm] = useState('medium_term')
@@ -16,6 +16,12 @@ const Stats = () => {
   function getPlaylistUrls(tracks) {
     const playlist = tracks.map(({ uri }) => uri)
     return playlist
+  }
+
+  function getPlaylistName() {
+    if (term === 'short_term') return 'Recent Songs'
+    else if (term === 'long_term') return 'All Time Songs'
+    else if (term === 'medium_term') return 'Seasonal Songs'
   }
 
   useEffect(() => {
@@ -35,7 +41,7 @@ const Stats = () => {
 
   return (
     <div className={styles.container}>
-      <Header picture={profile.avatar} />
+      <Header picture={profile.avatar} logout={logIn} />
       <Description
         picture={profile.avatar}
         name={profile.name}
@@ -53,7 +59,11 @@ const Stats = () => {
             />
           ))}
       </div>
-      <PlaylistButton id={profile.id} tracks={getPlaylistUrls(tracks)} />
+      <PlaylistButton
+        uid={profile.id}
+        tracks={getPlaylistUrls(tracks)}
+        name={getPlaylistName(term)}
+      />
     </div>
   )
 }
