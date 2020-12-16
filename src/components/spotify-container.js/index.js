@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
-import ConnectSpotify from '../connect-spotify'
-import Stats from '../stats'
-import { useAuth } from '../../context/auth'
+import ConnectSpotify from 'components/connect-spotify'
+import Stats from 'components/stats'
+import { useAuth } from 'context/auth'
 
 const SpotifyContainer = () => {
   const { accessToken, loggedinSpotify, logInToSpotify } = useAuth()

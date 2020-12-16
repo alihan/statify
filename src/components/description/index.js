@@ -1,5 +1,4 @@
 import React from 'react'
-import Statify from '../icons/statify'
 import style from './style.module.scss'
 
 const Header = ({ picture, name, setTerm }) => {

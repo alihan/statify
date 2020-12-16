@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
-import Spotify from '../icons/spotify'
-import Statify from '../icons/statify'
-import SpotifyContainer from '../spotify-container.js'
+import React from 'react'
+import { Statify } from 'components/icons'
 import style from './style.module.scss'
-import { useAuth } from '../../context/auth'
+import { useAuth } from 'context/auth'
 
-const Header = ({ picture }) => {
+const Header = () => {
   const { logOutToSpotify } = useAuth()
 
   return (
@@ -22,7 +20,6 @@ const Header = ({ picture }) => {
             logOutToSpotify()
           }}
         >
-          {' '}
           Log Out
         </button>
       </div>

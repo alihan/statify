@@ -1,5 +1,5 @@
 import React, { useState, useContext, createContext } from 'react'
-import * as SpotifyFunctions from '../api/spotify'
+import * as SpotifyFunctions from 'api/spotify'
 
 const authContext = createContext()
 
