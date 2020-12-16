@@ -1,5 +1,5 @@
 import React from 'react'
-import * as SpotifyFunctions from '../../api/spotify.js'
+import { createPlaylist } from 'api/spotify.js'
 import style from './styles.module.scss'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -41,8 +41,8 @@ const PlaylistButton = ({ uid, tracks, name }) => {
       }
     })
 
-  async function createPlaylist(uid, tracks, name) {
-    let id = await SpotifyFunctions.createPlaylist(uid, name, tracks)
+  async function createPlaylistAddTracks(uid, tracks, name) {
+    let id = await createPlaylist(uid, name, tracks)
     if (id === undefined) {
       errorToast()
     } else {
@@ -54,7 +54,7 @@ const PlaylistButton = ({ uid, tracks, name }) => {
     <div className={style.container}>
       <button
         className={style.button}
-        onClick={() => createPlaylist(uid, tracks, name)}
+        onClick={() => createPlaylistAddTracks(uid, tracks, name)}
       >
         Create Playlist
       </button>
