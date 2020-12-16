@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext } from 'react'
 import * as SpotifyFunctions from 'api/spotify'
+import cookie from 'js-cookie'
 
 const authContext = createContext()
 
@@ -18,20 +19,22 @@ function useProvideAuth() {
 
   const logInToSpotify = () => {
     const accessToken = SpotifyFunctions.checkUrlForSpotifyAccessToken()
-    let token = localStorage.getItem('token')
+    let token = cookie.get('accessToken')
+
     if (token) {
       SpotifyFunctions.setAccessToken(token)
       setLoggedinSpotify(true)
       setAccessToken(token)
     } else if (accessToken) {
+      let inOneHour = new Date(new Date().getTime() + 60 * 60 * 1000)
       setAccessToken(accessToken)
       setLoggedinSpotify(true)
-      localStorage.setItem('token', accessToken)
+      cookie.set('accessToken', accessToken, { expires: inOneHour })
     }
   }
 
   const logOutToSpotify = () => {
-    localStorage.removeItem('token')
+    cookie.remove('accessToken')
     setLoggedinSpotify(false)
   }
 
