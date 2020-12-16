@@ -89,7 +89,13 @@ export async function getMyTracks(term) {
         name,
         uri
       } = item
-      return { name: name, artists: artists, images: images[0].url, uri }
+      return {
+        number: tracksResponse.items.indexOf(item) + 1,
+        name,
+        artists,
+        images: images[0].url,
+        uri
+      }
     })
     return tracks
   } catch (err) {
@@ -108,8 +114,8 @@ export async function createPlaylist(uid, name, tracks) {
 
     const { id } = playlistResponse
 
-    const tracksResponse = await spotifyApi.addTracksToPlaylist(id, tracks)
-    return tracksResponse
+    const addTracksResponse = await spotifyApi.addTracksToPlaylist(id, tracks)
+    return addTracksResponse
   } catch (err) {
     console.error('Error: Attempting to create playlist', err)
     console.error(err.stack)
@@ -117,16 +123,25 @@ export async function createPlaylist(uid, name, tracks) {
   }
 }
 
-export async function addSongsToPlaylist(playlistId, uris) {
+export async function getMyArtists(term) {
   try {
-    const playlistResponse = await spotifyApi.addTracksToPlaylist(
-      playlistId,
-      uris
-    )
-    return playlistResponse
+    const artistsResponse = await spotifyApi.getMyTopArtists({
+      limit: 50,
+      time_range: term
+    })
+    const artists = artistsResponse.items.map((item) => {
+      const { images, name, uri } = item
+      return {
+        number: artistsResponse.items.indexOf(item) + 1,
+        name,
+        images: images[0].url,
+        uri
+      }
+    })
+    return artists
   } catch (err) {
-    console.error('Error: Attempting to add tracks to playlist', err)
+    console.error('Error: Attempting to get user information', err)
     console.error(err.stack)
-    return [{ snapshot_id: null }]
+    return [{ id: null, album: "Can't get your tracks info!" }]
   }
 }

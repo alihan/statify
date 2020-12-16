@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import * as SpotifyFunctions from '../../api/spotify.js'
-import PlaylistButton from '../playlist-button'
-import Track from '../track'
-import Header from '../header'
-import Description from '../description'
-
+import { getMyArtists, getMyInfo, getMyTracks } from 'api/spotify.js'
+import PlaylistButton from 'components/playlist-button'
+import Track from 'components/track'
+import Header from 'components/header'
+import Description from 'components/description'
 import styles from './style.module.scss'
+import Loading from 'components/loading/index.js'
+import Artist from 'components/artists'
 
 const Stats = () => {
   const [profile, setProfile] = useState({})
   const [tracks, setTracks] = useState()
+  const [artists, setArtists] = useState()
   const [term, setTerm] = useState('medium_term')
   const [loading, setLoading] = useState(true)
 
@@ -26,8 +28,10 @@ const Stats = () => {
 
   useEffect(() => {
     const fetchMyInfo = async () => {
-      let profile = await SpotifyFunctions.getMyInfo()
-      let tracks = await SpotifyFunctions.getMyTracks(term)
+      let profile = await getMyInfo()
+      let tracks = await getMyTracks(term)
+      let artists = await getMyArtists(term)
+      setArtists(artists)
       setProfile(profile)
       setTracks(tracks)
       setLoading(false)
@@ -36,7 +40,7 @@ const Stats = () => {
   }, [term])
 
   if (loading) {
-    return <h1>YÜKLENİYOR</h1>
+    return <Loading />
   }
 
   return (
@@ -49,11 +53,23 @@ const Stats = () => {
       />
       <div className={styles.trackContainer}>
         {tracks &&
-          tracks.map(({ name, artists, images, uri }) => (
+          tracks.map(({ number, name, artists, images, uri }) => (
             <Track
               key={uri}
+              number={number}
               name={name}
               artists={artists}
+              images={images}
+              uri={uri}
+            />
+          ))}
+
+        {artists &&
+          artists.map(({ number, name, images, uri }) => (
+            <Artist
+              key={uri}
+              number={number}
+              name={name}
               images={images}
               uri={uri}
             />
