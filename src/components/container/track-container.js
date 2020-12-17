@@ -1,4 +1,5 @@
 import SectionHeader from 'components/section-header'
+import SectionInfo from 'components/section-info'
 import Track from 'components/track'
 import React from 'react'
 import style from './style.module.scss'
@@ -8,10 +9,7 @@ const TrackContainer = ({ term, tracks }) => {
   return (
     <section className={style.section}>
       <SectionHeader title="Tracks" images={images} />
-      <div className="">
-        <h3>{term}</h3>
-        <p>{}</p>
-      </div>
+      <SectionInfo section="tracks" term={term} />
       <div className={style.container}>
         {tracks &&
           tracks.map(({ number, name, artists, images, uri }) => (

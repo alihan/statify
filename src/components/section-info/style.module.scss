@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.titleContainer {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: $gray;
+}
+
+.infoHeader {
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+.infoDescription {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 500;
+}
