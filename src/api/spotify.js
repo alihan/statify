@@ -80,7 +80,7 @@ export async function getMyInfo() {
 export async function getMyTracks(term) {
   try {
     const tracksResponse = await spotifyApi.getMyTopTracks({
-      limit: 50,
+      limit: 30,
       time_range: term
     })
     const tracks = tracksResponse.items.map((item) => {
@@ -126,7 +126,7 @@ export async function createPlaylist(uid, name, tracks) {
 export async function getMyArtists(term) {
   try {
     const artistsResponse = await spotifyApi.getMyTopArtists({
-      limit: 50,
+      limit: 30,
       time_range: term
     })
     const artists = artistsResponse.items.map((item) => {
