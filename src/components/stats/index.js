@@ -7,6 +7,9 @@ import Description from 'components/description'
 import styles from './style.module.scss'
 import Loading from 'components/loading/index.js'
 import Artist from 'components/artists'
+import TrackContainer from 'components/container/track-container'
+import ArtistContainer from 'components/container/artist-container'
+import { getTermName, getPlaylistUrls } from 'utils'
 
 const Stats = () => {
   const [profile, setProfile] = useState({})
@@ -14,17 +17,6 @@ const Stats = () => {
   const [artists, setArtists] = useState()
   const [term, setTerm] = useState('medium_term')
   const [loading, setLoading] = useState(true)
-
-  function getPlaylistUrls(tracks) {
-    const playlist = tracks.map(({ uri }) => uri)
-    return playlist
-  }
-
-  function getPlaylistName() {
-    if (term === 'short_term') return 'Recent Songs'
-    else if (term === 'long_term') return 'All Time Songs'
-    else if (term === 'medium_term') return 'Seasonal Songs'
-  }
 
   useEffect(() => {
     const fetchMyInfo = async () => {
@@ -52,33 +44,13 @@ const Stats = () => {
         setTerm={setTerm}
       />
       <div className={styles.trackContainer}>
-        {tracks &&
-          tracks.map(({ number, name, artists, images, uri }) => (
-            <Track
-              key={uri}
-              number={number}
-              name={name}
-              artists={artists}
-              images={images}
-              uri={uri}
-            />
-          ))}
-
-        {artists &&
-          artists.map(({ number, name, images, uri }) => (
-            <Artist
-              key={uri}
-              number={number}
-              name={name}
-              images={images}
-              uri={uri}
-            />
-          ))}
+        <ArtistContainer artists={artists} term={getTermName(term)} />
+        <TrackContainer tracks={tracks} term={getTermName(term)} />
       </div>
       <PlaylistButton
         uid={profile.id}
         tracks={getPlaylistUrls(tracks)}
-        name={getPlaylistName(term)}
+        name={getTermName(term)}
       />
     </div>
   )

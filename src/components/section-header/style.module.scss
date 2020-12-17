@@ -1,0 +1,34 @@
+.titleContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: #7d044c 2px 2px 3px;
+}
+
+.banner {
+  width: 295px;
+  height: 295px;
+  position: absolute;
+  top: -162px;
+  border-radius: 12px;
+  right: 0;
+  animation: crescendo 2s alternate infinite ease-in;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+@keyframes crescendo {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
