@@ -27,10 +27,16 @@
 
 .name {
   display: flex;
+  margin-bottom: 7px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .songName {
   margin-bottom: 7px;
+}
+
+.songNumber {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .artists {

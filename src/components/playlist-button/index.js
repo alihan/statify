@@ -1,6 +1,6 @@
 import React from 'react'
 import { createPlaylist } from 'api/spotify.js'
-import style from './styles.module.scss'
+import style from './style.module.scss'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

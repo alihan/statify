@@ -3,7 +3,12 @@
 .section {
   width: 100%;
   padding: 3rem 0;
-  background-color: $sunflower;
+  background: linear-gradient(
+    to right,
+    #dad299,
+    #b0dab9
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -37,15 +42,14 @@
 .button {
   margin: 0 10px;
   padding: 10px 20px;
-  border-radius: 4px;
-  background-color: transparent;
-  border: 2px solid $brown;
-  color: $brown;
-  cursor: pointer;
+  border-radius: 18px;
+  background: linear-gradient(to right, #76b852, #8dc26f);
 
+  color: $white;
+  cursor: pointer;
+  box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.3) !important;
   &:hover {
-    background-color: $brown;
-    color: $sunflower;
+    transform: scale(1.05);
     transition: 100ms;
   }
 }

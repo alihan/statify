@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from './styles.module.scss'
+import style from './style.module.scss'
 import ConnectSpotify from 'components/connect-spotify'
 import Stats from 'components/stats'
 import { useAuth } from 'context/auth'
@@ -12,7 +12,7 @@ const SpotifyContainer = () => {
   }, [accessToken])
 
   return (
-    <div className={styles.container}>
+    <div className={style.container}>
       {!loggedinSpotify ? <ConnectSpotify /> : <Stats />}
     </div>
   )

@@ -7,7 +7,7 @@ const Header = ({ picture, name, setTerm }) => {
       <div className={style.container}>
         <img src={picture} alt="profile" className={style.img} />
         <h4 className={style.description}>
-          Hey {name}, check out your favorite tracks below.
+          Hey {name}, check out your favorite tracks & artists below.
         </h4>
       </div>
       <div className={style.buttonContainer}>

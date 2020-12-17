@@ -9,6 +9,7 @@
   width: 300px;
   background-color: transparent;
   border-radius: 12px;
+  color: $white;
 }
 
 .image {
@@ -16,27 +17,11 @@
   height: 300px;
   border-radius: 4px;
   margin-right: 20px;
+  margin-bottom: 10px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
 }
 
-.trackInfo {
-  flex-direction: column;
-  display: flex;
-  color: $white;
-  font-weight: 500;
-}
-
-.name {
-  display: flex;
-}
-
-.songName {
+.artistName {
+  font-size: 20px;
   margin-bottom: 7px;
-}
-
-.artists {
-  &:not(:last-child):after {
-    content: ',';
-    margin-right: 4px;
-  }
 }

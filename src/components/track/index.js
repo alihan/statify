@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './styles.module.scss'
+import style from './style.module.scss'
 
 const Track = ({ number, name, artists, images, uri }) => {
   return (
@@ -17,7 +17,7 @@ const Track = ({ number, name, artists, images, uri }) => {
               )
             })}
           </span>
-          <p className={style.songName}>{number}</p>
+          <p className={style.songNumber}>{number}</p>
         </div>
       </div>
     </a>

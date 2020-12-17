@@ -1,15 +1,15 @@
 import React from 'react'
-import styles from './styles.module.scss'
+import style from './style.module.scss'
 import { redirectUrlToSpotifyForLogin } from 'api/spotify.js'
 import { Statify, Spotify } from 'components/icons'
 
 const ConnectSpotify = () => {
   return (
-    <div className={styles.container}>
+    <div className={style.container}>
       <Statify />
-      <h3 className={styles.title}>Stats for Spotify</h3>
+      <h3 className={style.title}>Stats for Spotify</h3>
       <a href={redirectUrlToSpotifyForLogin()}>
-        <button className={styles.button}>
+        <button className={style.button}>
           Connect to Spotify
           <Spotify />
         </button>

@@ -1,10 +1,11 @@
 @import '../../styles/variables.scss';
 
 .container {
+  margin-top: -30px;
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  background: linear-gradient(to right, #9d50bb, #6e48aa);
 }
 
 .button {
@@ -12,9 +13,17 @@
   padding: 15px 50px;
   font-size: 22px;
   border-radius: 12px;
-  background-color: $citric;
+  background: linear-gradient(
+    to right,
+    #ffefba,
+    #ffffff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: $fuchsia;
   font-weight: 600;
   cursor: pointer;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
