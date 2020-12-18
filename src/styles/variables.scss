@@ -1,21 +1,43 @@
-$main-green: #1db954;
-$secondary-green: #1ed780;
+@import '_mixins.scss';
+/* COLORS */
 $black: #191414;
 $white: #fff;
-$seafoam: #19e68c;
-$neon-green: #5ff550;
-$citric: #cdf564;
 $fuchsia: #f15fb7;
-$pink: #ffcdd2;
-$red: #eb1e32;
 $tangerine: #ff4632;
-$orange: #ff6437;
-$blue: #4100f5;
-$azure: #509bf5;
-$aquamarine: #9bf0e1;
-$sunflower: #fadda8;
-$yellow: #141e30;
 $brown: rgb(85, 75, 53);
 $browna: rgba(15, 15, 15, 0.3);
-$gray: rgb(240, 240, 240);
+$whitea: rgba(255, 255, 255, 0.8);
+$track-section-bg: linear-gradient(to right, #9d50bb, #6e48aa);
+$grayish: rgb(240, 240, 240);
+$container-btn-bg: linear-gradient(to right, #9d50bb, #6e48aa);
+$playlist-btn-bg: linear-gradient(to right, #ffefba, #ffffff);
+$artist-section-bg: linear-gradient(to right, #141e30, #243b55);
+$description-bg: linear-gradient(to right, #dad299, #b0dab9);
+$description-button-bg: linear-gradient(to right, #76b852, #8dc26f);
 
+/* FONT */
+$artist-font-size: 20px;
+$title-font-size: 50px;
+$title-font-size-mb: 41px;
+$button-large-font-size: 21px;
+$large-font-size: 30px;
+$banner-title: 90px;
+$bold: 700;
+$bolder: 600;
+$normal-font-weight: 500;
+
+/* SHADOWS, BORDERS, TRANSITIONS */
+$transition: 100ms;
+$transform: scale(1.05);
+$box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+$button-box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.3);
+$text-shadow: #363435 2px 2px 3px;
+$artist-border: 12px;
+
+/* PADDING, MARGINS, WIDTH */
+$margin: 10px;
+$artist-padmar: 15px;
+$artist-width: 300px;
+$item-marbottom: 7px;
+$connect-margin: 30px;
+$section-padding: 4rem;

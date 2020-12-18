@@ -1,0 +1,43 @@
+@mixin flex($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+}
+
+@mixin image($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+@mixin bordered($radius) {
+  border-radius: $radius;
+}
+
+@mixin property($property, $value1, $value2) {
+  #{$property}: $value1 $value2;
+}
+
+@mixin border($size, $style, $radius) {
+  border: $size $style $radius;
+}
+
+@mixin mq($width: 'mobile') {
+  @if ($width == 'mobile') {
+    // Medium devices (tablets, 768px and up)
+    @media (max-width: 700px) {
+      @content;
+    }
+  } @else if ($width == 'tablet') {
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 700px) and (max-width: 1250px) {
+      @content;
+    }
+  }
+}
