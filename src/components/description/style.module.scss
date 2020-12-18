@@ -1,55 +1,59 @@
 @import '../../styles/variables.scss';
+@import '../../styles/_mixins.scss';
 
 .section {
-  width: 100%;
-  padding: 3rem 0;
-  background: linear-gradient(
-    to right,
-    #dad299,
-    #b0dab9
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  @include property(padding, 3rem, 0);
+  @include flex(column);
+  background: $description-bg;
+  @include mq('mobile') {
+    padding: 3rem 3rem;
+  }
 }
 
 .container {
-  padding: 6rem 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex;
+  @include property(padding, 6rem, 3rem);
 }
 
 .img {
-  height: 180px;
-  width: 180px;
-  border-radius: 50%;
-  border: 4px solid $white;
+  @include image(150px, 50%);
+  @include border(4px, solid, $white);
   margin-right: 25px;
+
+  @include mq('mobile') {
+    @include image(85px, 50%);
+    margin-right: 15px;
+  }
 }
 
 .description {
-  font-size: 26px;
+  font-size: $large-font-size;
   color: $brown;
   letter-spacing: -1px;
+
+  @include mq('mobile') {
+    font-size: 15px;
+  }
 }
 
 .buttonContainer {
+  @include mq('mobile') {
+    margin-bottom: 3rem;
+    margin-top: -1rem;
+  }
 }
 
 .button {
-  margin: 0 10px;
-  padding: 10px 20px;
-  border-radius: 18px;
-  background: linear-gradient(to right, #76b852, #8dc26f);
-
+  @include property(margin, 0, 10px);
+  @include property(padding, 10px, 20px);
+  @include bordered(18px);
+  background: $description-button-bg;
   color: $white;
   cursor: pointer;
-  box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: $button-box-shadow;
+
   &:hover {
-    transform: scale(1.05);
-    transition: 100ms;
+    transform: $transform;
+    transition: $transition;
   }
 }

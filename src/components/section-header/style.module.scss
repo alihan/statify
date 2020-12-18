@@ -1,27 +1,37 @@
+@import '../../styles/variables.scss';
+@import '../../styles/_mixins.scss';
+
 .titleContainer {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
+  @include mq('mobile') {
+    z-index: 1;
+    justify-content: center;
+  }
 }
 
 .title {
-  font-size: 6rem;
-  font-weight: 700;
-  color: white;
-  text-shadow: #363435 2px 2px 3px;
+  font-size: $banner-title;
+  font-weight: $bold;
+  color: $white;
+  text-shadow: $text-shadow;
 }
 
 .banner {
-  width: 295px;
-  height: 295px;
+  @include image(295px, 12px);
   position: absolute;
   top: -162px;
-  border-radius: 12px;
   right: 0;
   animation: crescendo 2s alternate infinite ease-in;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: $box-shadow;
+  @include mq('mobile') {
+    @include image(200px, 12px);
+    right: 20px;
+    top: -100px;
+    z-index: -1;
+  }
 }
 
 @keyframes crescendo {
@@ -29,6 +39,6 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(1.05);
+    transform: $transform;
   }
 }

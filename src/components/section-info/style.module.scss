@@ -1,22 +1,25 @@
 @import '../../styles/variables.scss';
 
+@import '../../styles/_mixins.scss';
+
 .titleContainer {
-  margin-top: 5rem;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  color: $gray;
+  @include flex(column);
+  margin-top: 6rem;
+  color: $grayish;
 }
 
 .infoHeader {
-  font-size: 50px;
-  font-weight: 600;
-  margin-bottom: 30px;
+  font-size: $title-font-size;
+  font-weight: $bolder;
+  margin-bottom: $connect-margin;
   text-transform: capitalize;
 }
 
 .infoDescription {
-  margin-bottom: 30px;
-  font-size: 22px;
-  font-weight: 500;
+  margin-bottom: $connect-margin;
+  font-size: $button-large-font-size;
+  font-weight: $normal-font-weight;
+  @include mq('mobile'){
+    font-size: 12px;
+  }
 }

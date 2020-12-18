@@ -1,11 +1,10 @@
 @import '../../styles/variables.scss';
+@import '../../styles/_mixins.scss';
 
 .header {
-  width: 100%;
+  @include flex;
   background-color: $black;
   color: $white;
-  display: flex;
-  justify-content: center;
 }
 
 .nav {
@@ -13,38 +12,37 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: $artist-padmar;
 }
 
 .logo {
   display: flex;
-  font-size: 30px;
-  margin: 10px;
+  font-size: $large-font-size;
+  margin: $margin;
   & > svg {
     fill: $white;
-    margin-right: 15px;
+    margin-right: $artist-padmar;
+  }
+  @include mq('mobile') {
+    margin: 10px 0 10px 53px;
   }
 }
 
-.avatar {
-  margin: 10px;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-}
-
 .button {
-  margin: 0 10px;
-  padding: 8px 20px;
-  border-radius: 4px;
+  @include property(margin, 0, 10px);
+  @include property(padding, 8px, 20px);
+  @include bordered(4px);
+  @include border(2px, solid, $white);
   background-color: transparent;
-  border: 2px solid $white;
   color: $white;
-  font-weight: 500;
+  font-weight: $normal-font-weight;
   cursor: pointer;
+  @include mq('mobile') {
+    margin: 10px 51px;
+  }
 
   &:hover {
-    transition: 100ms;
+    transition: $transition;
     background-color: $white;
     color: $black;
   }

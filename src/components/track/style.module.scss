@@ -1,20 +1,19 @@
 @import '../../styles/variables.scss';
+@import '../../styles/_mixins.scss';
 
 .container {
   display: flex;
   align-items: center;
-  margin: 15px;
-  padding: 15px;
+  margin: $artist-padmar;
+  padding: $artist-padmar;
   width: 300px;
   background-color: $browna;
-  border-radius: 12px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4) !important;
+  border-radius: $artist-border;
+  box-shadow: $box-shadow;
 }
 
 .image {
-  width: 100px;
-  height: 100px;
-  border-radius: 4px;
+  @include image(100px, 4px);
   margin-right: 20px;
 }
 
@@ -22,21 +21,21 @@
   flex-direction: column;
   display: flex;
   color: $white;
-  font-weight: 500;
+  font-weight: $normal-font-weight;
 }
 
 .name {
   display: flex;
-  margin-bottom: 7px;
-  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: $item-marbottom;
+  color: $whitea;
 }
 
 .songName {
-  margin-bottom: 7px;
+  margin-bottom: $item-marbottom;
 }
 
 .songNumber {
-  color: rgba(255, 255, 255, 0.8);
+  color: $whitea;
 }
 
 .artists {
