@@ -7,7 +7,7 @@ import style from './style.module.scss'
 const TrackContainer = ({ term, tracks }) => {
   let { images } = tracks[0]
   return (
-    <section className={style.section}>
+    <section className={style.trackSection}>
       <SectionHeader title="Tracks" images={images} />
       <SectionInfo section="tracks" term={term} />
       <div className={style.container}>

@@ -5,6 +5,6 @@ export function getPlaylistUrls(tracks) {
 
 export function getTermName(term) {
   if (term === 'short_term') return 'recent'
-  else if (term === 'long_term') return 'all Time'
+  else if (term === 'long_term') return 'all time'
   else if (term === 'medium_term') return 'seasonal'
 }

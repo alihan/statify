@@ -6,9 +6,9 @@ const Header = ({ picture, name, setTerm }) => {
     <section className={style.section}>
       <div className={style.container}>
         <img src={picture} alt="profile" className={style.img} />
-        <h4 className={style.description}>
+        <p className={style.description}>
           Hey {name}, check out your favorite tracks & artists below.
-        </h4>
+        </p>
       </div>
       <div className={style.buttonContainer}>
         <button onClick={() => setTerm('short_term')} className={style.button}>
