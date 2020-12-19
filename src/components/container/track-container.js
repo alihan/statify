@@ -1,8 +1,8 @@
+import React from 'react'
+import style from './style.module.scss'
 import SectionHeader from 'components/section-header'
 import SectionInfo from 'components/section-info'
 import Track from 'components/track'
-import React from 'react'
-import style from './style.module.scss'
 
 const TrackContainer = ({ term, tracks }) => {
   let { images } = tracks[0]

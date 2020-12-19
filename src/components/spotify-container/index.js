@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import style from './style.module.scss'
+import { useAuth } from 'context/auth'
 import ConnectSpotify from 'components/connect-spotify'
 import Stats from 'components/stats'
-import { useAuth } from 'context/auth'
 
 const SpotifyContainer = () => {
-  const { accessToken, loggedinSpotify, logInToSpotify } = useAuth()
+  const { loggedinSpotify, logInToSpotify } = useAuth()
 
   useEffect(() => {
     logInToSpotify()
-  }, [accessToken])
+  })
 
   return (
     <div className={style.container}>

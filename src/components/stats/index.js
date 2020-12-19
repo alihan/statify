@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { getMyArtists, getMyInfo, getMyTracks } from 'api/spotify.js'
+import style from './style.module.scss'
+import { getTermName, getPlaylistUrls } from 'utils'
 import PlaylistButton from 'components/playlist-button'
 import Header from 'components/header'
 import Description from 'components/description'
-import style from './style.module.scss'
 import Loading from 'components/loading/index.js'
 import TrackContainer from 'components/container/track-container'
 import ArtistContainer from 'components/container/artist-container'
-import { getTermName, getPlaylistUrls } from 'utils'
 
 const Stats = () => {
   const [profile, setProfile] = useState({})

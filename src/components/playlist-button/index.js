@@ -1,8 +1,8 @@
 import React from 'react'
-import { createPlaylist } from 'api/spotify.js'
-import style from './style.module.scss'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import style from './style.module.scss'
+import { createPlaylist } from 'api/spotify.js'
 
 const PlaylistButton = ({ uid, tracks, name }) => {
   const successToast = () =>

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Statify } from 'components/icons'
 import style from './style.module.scss'
 import { useAuth } from 'context/auth'
+import { Statify } from 'components/icons'
 
 const Header = () => {
   const { logOutToSpotify } = useAuth()

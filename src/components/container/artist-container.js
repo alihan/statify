@@ -1,8 +1,8 @@
+import React from 'react'
+import style from './style.module.scss'
 import Artist from 'components/artists'
 import SectionHeader from 'components/section-header'
 import SectionInfo from 'components/section-info'
-import React from 'react'
-import style from './style.module.scss'
 
 const ArtistContainer = ({ term, artists }) => {
   let { images } = artists[0]

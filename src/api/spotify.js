@@ -1,7 +1,6 @@
 import Spotify from 'spotify-web-api-js'
 
 const spotifyApi = new Spotify()
-let globalAccessToken = ''
 
 export function redirectUrlToSpotifyForLogin() {
   const CLIENT_ID = process.env.REACT_APP_SPOTIFY_CLIENT_ID
@@ -49,7 +48,6 @@ function getHashParams() {
 
 export function setAccessToken(accessToken) {
   spotifyApi.setAccessToken(accessToken)
-  globalAccessToken = accessToken
 }
 
 export async function getMyInfo() {
