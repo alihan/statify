@@ -21,7 +21,7 @@ REACT_APP_SPOTIFY_REDIRECT_URI=
 $ git clone https://github.com/alihan/statify.git
 $ cd statify
 $ npm install
-$ npm start
+$ npm run start
 ```
 
 ## Built Using
